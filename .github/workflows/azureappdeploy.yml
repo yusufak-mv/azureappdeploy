@@ -21,13 +21,13 @@ on:
       #     'The username used to authenticate push requests to the provided Azure Container Registry. If not provided, an
       #     access token will be generated via "az acr login" and provided to "docker login" to authenticate the requests.'
       #   required: false
-      #   default: '${{ secrets.REGISTRY_USERNAME }}'
+      #   default: ''
       # acrPassword:
       #   description: |
       #     'The password used to authenticate push requests to the provided Azure Container Registry. If not provided, an
       #     access token will be generated via "az acr login" and provided to "docker login" to authenticate the requests.'
       #   required: false
-      #   default: '${{ secrets.REGISTRY_PASSWORD }}'
+      #   default: ''
       registryUrl:
         description: 'The base URL of the Container Registry that the runnable application image will be pushed to.'  
         required: false
@@ -35,12 +35,11 @@ on:
       registryUsername: 
         description: 'The username used to authenticate push requests to the provided Container Registry using the "docker login" action.'  
         required: false
-        default: '${{ secrets.REGISTRY_USERNAME }}'
-    
+        default: 'yustestregistry01'
       registryPassword: 
         description: 'The password used to authenticate push requests to the provided Container Registry using the "docker login" action.'  
         required: false
-        default: '${{ secrets.REGISTRY_PASSWORD }}'
+        default: ''
     #   azureCredentials:
     #     description: |
     #       'Azure credentials used by the `azure/login` action to authenticate Azure CLI requests if the user has not
@@ -59,7 +58,7 @@ on:
           action. Note: this image name should include the registry server; e.g., <registryUrl>/<repo>:<tag>. If this
           argument is not provided, the value provided (or determined) for the "imageToBuild" argument will be used.'
         required: false
-        default: '${{ secrets.REGISTRY_USERNAME }}.azurecr.io/yus-test-app:dad9edca7f5a5aa7bf1a0b7f27697cece5f7ff3a'
+        default: 'yustestregistry01.azurecr.io/yus-test-app:dad9edca7f5a5aa7bf1a0b7f27697cece5f7ff3a'
     #   dockerfilePath:
     #     description: |
     #       'Relative path to the Dockerfile in the provided application source that should be used to build the image that is
