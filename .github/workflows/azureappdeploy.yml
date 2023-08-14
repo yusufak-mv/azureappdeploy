@@ -1,10 +1,10 @@
 
-# name: 'Azure Container Apps Build and Deploy'
-# description: |
-#   'GitHub Action for building and deploying Azure Container Apps'
-# branding:
-#   icon: "login.svg"
-#   color: "blue"
+name: 'Azure Container Apps Build and Deploy'
+description: |
+  'GitHub Action for building and deploying Azure Container Apps'
+branding:
+  icon: "login.svg"
+  color: "blue"
 
 on:
   workflow_dispatch:
