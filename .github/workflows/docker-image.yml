@@ -35,5 +35,5 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: yus-test-sample
+        tags: ${{ secrets.REGISTRY_USERNAME }}/yus-test-sample
         file: docker-helloworld/Dockerfile
