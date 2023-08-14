@@ -137,20 +137,20 @@ inputs:
 
 
 
-on: [push]
+# on: [push]
 
-jobs:
+# jobs:
 
-  Testing_azure_app:
-    name: Testing installation
+#   Testing_azure_app:
+#     name: Testing installation
 
-    runs-on: ubuntu-latest
+#     runs-on: ubuntu-latest
 
     
 
-# runs:
-#   using: "composite"
-    steps:
+runs:
+  using: "composite"
+  steps:
         - name: Start timer to track action execution length, in milliseconds
           if: ${{ always() && inputs.disableTelemetry == 'false' }}
           shell: bash
