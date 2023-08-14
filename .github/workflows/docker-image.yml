@@ -17,10 +17,10 @@ jobs:
 
 
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build ./docker-helloworld --file Dockerfile --tag my-image-name:$(date +%s)
     
     - name: 'Docker Login'
       uses: azure/docker-login@v1
