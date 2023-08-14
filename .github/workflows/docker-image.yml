@@ -17,10 +17,10 @@ jobs:
 
 
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
 
-    - name: Build the Docker image
-      run: docker build ./docker-helloworld --file Dockerfile --tag my-image-name:$(date +%s)
+    # - name: Build the Docker image
+    #   run: docker build ./docker-helloworld --file Dockerfile --tag my-image-name:$(date +%s)
     
     - name: 'Docker Login'
       uses: azure/docker-login@v1
@@ -33,5 +33,5 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: tamopsgithubacr.azurecr.io/aspcoresample:${{ github.sha }}
-        file: aspnet-core-dotnet-core/Dockerfile
+        tags: yus-test-sample
+        file: docker-helloworld/Dockerfile
