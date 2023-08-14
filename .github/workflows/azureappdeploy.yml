@@ -124,7 +124,7 @@ inputs:
       this GitHub Action.'
     required: false
     default: false
-
+on: [push]
 runs:
   using: "composite"
   steps:
