@@ -35,5 +35,5 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: ${{ secrets.REGISTRY_USERNAME }}/yus-test-sample
+        tags: ${{ secrets.REGISTRY_USERNAME }}.azurecr.io/yus-test-app:${{ github.sha }}
         file: docker-helloworld/Dockerfile
