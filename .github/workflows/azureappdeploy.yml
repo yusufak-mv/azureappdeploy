@@ -66,12 +66,12 @@ on:
     #       named "Dockerfile" in the provided application source and use that to build the image. Otherwise, the Oryx++
     #       Builder will be used to create the image.'
     #     required: false
-    #   containerAppName:
-    #     description: |
-    #       'The name of the Azure Container App that will be created or updated. If not provided, this value will be
-    #       gh-action-app-<github-run-id>-<github-run-attempt>.'
-    #     required: false
-    #     default: 'gh-action-app-${{ github.run_id }}-${{ github.run_attempt }}'
+      containerAppName:
+        description: |
+          'The name of the Azure Container App that will be created or updated. If not provided, this value will be
+          gh-action-app-<github-run-id>-<github-run-attempt>.'
+        required: false
+        default: 'gh-action-app-${{ github.run_id }}-${{ github.run_attempt }}'
       resourceGroup:
         description: |
           'The existing resource group that the Azure Container App will be created in. If not provided, this value will be
