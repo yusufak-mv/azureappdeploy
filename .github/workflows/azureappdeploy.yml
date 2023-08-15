@@ -207,12 +207,17 @@ jobs:
         #   with:
         #     creds: ${{ inputs.azureCredentials }}
 
-        - name: 'Az CLI login'
+        - name: Log in with Azure
           uses: azure/login@v1
           with:
-              client-id: ${{ secrets.AZURE_CLIENT_ID }}
-              tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-              subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+            creds: '${{ secrets.AZURE_CREDENTIALS }}'
+          
+        # - name: 'Az CLI login'
+        #   uses: azure/login@v1
+        #   with:
+        #       client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        #       tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        #       subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       
         - name: 'Run Azure CLI commands'
           run: |
