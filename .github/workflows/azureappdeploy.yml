@@ -8,6 +8,7 @@
 
 on:
   workflow_dispatch:
+  # push:
     inputs:
     #   appSourcePath:
     #     description: 'Absolute path on the GitHub runner of the source application code to be built.'
@@ -71,7 +72,8 @@ on:
           'The name of the Azure Container App that will be created or updated. If not provided, this value will be
           gh-action-app-<github-run-id>-<github-run-attempt>.'
         required: false
-        default: 'gh-action-app-${{ github.run_id }}-${{ github.run_attempt }}'
+        # default: 'gh-action-app-${{ github.run_id }}-${{ github.run_attempt }}'
+        default: 'gh-action-app-1'
       resourceGroup:
         description: |
           'The existing resource group that the Azure Container App will be created in. If not provided, this value will be
