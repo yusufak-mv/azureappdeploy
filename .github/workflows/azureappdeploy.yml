@@ -39,7 +39,7 @@ on:
       registryPassword: 
         description: 'The password used to authenticate push requests to the provided Container Registry using the "docker login" action.'  
         required: false
-        default: ''
+        default: 'NiDECOC7qnZXC4DHupdmAhluhB2askEV3MmQGg30fl+ACRAgitDv'
     #   azureCredentials:
     #     description: |
     #       'Azure credentials used by the `azure/login` action to authenticate Azure CLI requests if the user has not
@@ -201,11 +201,24 @@ jobs:
           shell: bash
           run: az config set extension.use_dynamic_install=yes_without_prompt
     
-        - name: Log in to Azure
-          if: ${{ inputs.azureCredentials != '' }}
+        # - name: Log in to Azure
+        #   if: ${{ inputs.azureCredentials != '' }}
+        #   uses: azure/login@v1
+        #   with:
+        #     creds: ${{ inputs.azureCredentials }}
+
+        - name: 'Az CLI login'
           uses: azure/login@v1
           with:
-            creds: ${{ inputs.azureCredentials }}
+              client-id: ${{ secrets.AZURE_CLIENT_ID }}
+              tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+              subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      
+        - name: 'Run Azure CLI commands'
+          run: |
+              az account show
+              az group list
+              pwd 
     
         - name: Log in to Azure Container Registry
           uses: docker/login-action@v2.2.0
