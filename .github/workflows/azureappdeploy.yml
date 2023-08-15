@@ -72,11 +72,12 @@ on:
     #       gh-action-app-<github-run-id>-<github-run-attempt>.'
     #     required: false
     #     default: 'gh-action-app-${{ github.run_id }}-${{ github.run_attempt }}'
-    #   resourceGroup:
-    #     description: |
-    #       'The existing resource group that the Azure Container App will be created in. If not provided, this value will be
-    #       <container-app-name>-rg and its existence will first be checked before attempting to create it.'
-    #     required: false
+      resourceGroup:
+        description: |
+          'The existing resource group that the Azure Container App will be created in. If not provided, this value will be
+          <container-app-name>-rg and its existence will first be checked before attempting to create it.'
+        required: false
+        default: 'rg-yusuf-akinbade'
     #   containerAppEnvironment:
     #     description: |
     #       'The name of the Azure Container App environment to use with the application. If not provided, an existing
