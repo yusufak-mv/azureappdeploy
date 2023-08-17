@@ -3,6 +3,7 @@
 env:
     LOCATION: eastus2
     RESOURCE_GROUP: 'rg-yusuf-akinbade'
+    TEMPLATE_FILE: "armtemplates/armserviceplan.json"
 
 on:
   workflow_dispatch:
@@ -29,6 +30,5 @@ jobs:
       with:
         azcliversion: 2.0.72
         inlineScript: |
-          templateFile="armgithubdeploy.yaml"
-          az group deployment create --name addappserviceplan --resource-group $RESOURCE_GROUP --template-file $REPLACE_THIS_WITH_TEMPLATE_FILE --parameters storagePrefix=store storageSKU=Standard_LRS
+          az group deployment create --name addappserviceplan --resource-group $RESOURCE_GROUP --template-file $TEMPLATE_FILE --parameters storagePrefix=store storageSKU=Standard_LRS
 
