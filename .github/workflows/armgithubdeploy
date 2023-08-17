@@ -1,0 +1,33 @@
+# File: .github/workflows/workflow.yml
+
+env:
+    LOCATION: US
+    RESOURCE_GROUP: 
+
+on:
+  workflow_dispatch:
+#on: [push]
+
+name: AzureARMSample
+
+jobs:
+
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    
+    - name: Checkout
+      uses: actions/checkout@v1
+      
+    - name: Azure ARM Deployment
+      uses: azure/ARM@v1
+      with:
+        azcliversion: 2.0.72
+        inlineScript: |
+          az group create --location $LOCATION --name $RESOURCE_GROUP
+          az group deployment create --resource-group $REPLACE_THIS_WITH_RESOURCE_GROUP --template-file $REPLACE_THIS_WITH_TEMPLATE_FILE
