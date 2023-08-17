@@ -28,7 +28,6 @@ jobs:
     - name: Azure ARM Deployment
       uses: azure/ARM@v1
       with:
-        azcliversion: 2.0.72
         inlineScript: |
           az group deployment create --name addappserviceplan --resource-group $RESOURCE_GROUP --template-file $TEMPLATE_FILE --parameters storagePrefix=store storageSKU=Standard_LRS
 
