@@ -32,7 +32,7 @@ jobs:
     #     azcliversion: 2.0.72
     #     inlineScript: |
     #       az group deployment create --name addappserviceplan --resource-group $RESOURCE_GROUP --template-file $TEMPLATE_FILE --parameters storagePrefix=store storageSKU=Standard_LRS
-    - uses: azure/arm-deploy@v1
+      uses: azure/arm-deploy@v1
       with:
         resourceGroupName: $RESOURCE_GROUP
         template: $TEMPLATE_FILE
