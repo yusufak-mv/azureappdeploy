@@ -1,8 +1,8 @@
 # File: .github/workflows/workflow.yml
 
 env:
-    LOCATION: US
-    RESOURCE_GROUP: 
+    LOCATION: eastus2
+    RESOURCE_GROUP: 'rg-yusuf-akinbade'
 
 on:
   workflow_dispatch:
@@ -29,5 +29,6 @@ jobs:
       with:
         azcliversion: 2.0.72
         inlineScript: |
-          az group create --location $LOCATION --name $RESOURCE_GROUP
-          az group deployment create --resource-group $REPLACE_THIS_WITH_RESOURCE_GROUP --template-file $REPLACE_THIS_WITH_TEMPLATE_FILE
+          templateFile="armgithubdeploy.yaml"
+          az group deployment create --name addappserviceplan --resource-group $RESOURCE_GROUP --template-file $REPLACE_THIS_WITH_TEMPLATE_FILE --parameters storagePrefix=store storageSKU=Standard_LRS
+
