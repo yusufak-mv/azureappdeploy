@@ -45,13 +45,13 @@ jobs:
     - name: Build and Package
       run: |
           # Restore dependencies
-          #dotnet restore
+          #dotnet restore MyConsoleApp/MyConsoleApp.sln
 
           # Build the application
-          dotnet build MyConsoleApp.sln --configuration Release
+          dotnet build MyConsoleApp/MyConsoleApp.sln --configuration Release
 
           # Publish the application
-          dotnet publish MyConsoleApp.sln --configuration Release --output ./publish
+          dotnet publish MyConsoleApp/MyConsoleApp.sln --configuration Release --output ./publish
 
           cat ./publish
 
