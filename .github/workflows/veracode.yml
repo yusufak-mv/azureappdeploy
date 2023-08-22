@@ -36,6 +36,24 @@ jobs:
       with:
         repository: ''
 
+    - run: sudo apt-get install -y dotnet-sdk-6.0
+    
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it and copies all sources into ZIP file for submitting for analysis. Replace this section with your applications build steps
+    - uses: actions/checkout@v3
+      with:
+        repository: ''
+    - name: Build and Package
+      run: |
+          # Restore dependencies
+          dotnet restore
+
+          # Build the application
+          dotnet build MyConsoleApp.sln --configuration Release
+
+          # Publish the application
+          dotnet publish MyConsoleApp.sln --configuration Release --output ./publish
+
+
     - run: zip -r veracode-scan-target.zip ./
 
     # download the Veracode Static Analysis Pipeline scan jar
