@@ -45,7 +45,7 @@ jobs:
     - name: Build and Package
       run: |
           # Restore dependencies
-          dotnet restore
+          #dotnet restore
 
           # Build the application
           dotnet build MyConsoleApp.sln --configuration Release
