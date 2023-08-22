@@ -53,7 +53,7 @@ jobs:
           # Publish the application
           dotnet publish MyConsoleApp/MyConsoleApp.sln --configuration Release --output ./publish
 
-          cat ./publish
+          ls -al ./publish
 
 
     - run: zip -r veracode-scan-target.zip ./publish
