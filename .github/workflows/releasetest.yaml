@@ -39,11 +39,11 @@ jobs:
       tagged: ${{ steps.check_tagged.outputs.tagged }}
       tag: ${{ steps.tag.outputs.new_tag }}
     steps:
-      - name: 🔃 Checkout dist branch
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ needs.build.outputs.branch }}
-          fetch-depth: 0
+      # - name: 🔃 Checkout dist branch
+      #   uses: actions/checkout@v2
+      #   with:
+      #     ref: ${{ needs.build.outputs.branch }}
+      #     fetch-depth: 0
 
       - name: ⚙️ Check tag exists
         id: check_tag
