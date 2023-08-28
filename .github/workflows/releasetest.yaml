@@ -22,7 +22,7 @@ jobs:
         id: tag
         run: |
           echo "1.0.1" > tag.txt
-          echo "::set-output name=version::'1.0.1'"
+          echo "::set-output name=version::1.0.1"
       - name: Test
         run: |
           cat Release.txt
