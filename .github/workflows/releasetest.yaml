@@ -46,7 +46,11 @@ jobs:
       #   with:
       #     ref: ${{ needs.build.outputs.branch }}
       #     fetch-depth: 0
-
+      - name: Test
+        run: |
+          echo ${{ needs.build.outputs.tag }} 
+          echo ${{ needs.build.outputs.release }}
+          cat tag.txt
       - name: ⚙️ Check tag exists
         id: check_tag
         uses: mukunku/tag-exists-action@v1.0.0
