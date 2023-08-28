@@ -17,10 +17,12 @@ jobs:
         id: version
         run: |
           echo ${{ github.sha }} > Release.txt
+          echo "::set-output name=release::${{ github.sha }}"
       - name: Test
         id: tag
         run: |
           echo "1.0.1" > tag.txt
+          echo "::set-output name=tag::'1.0.1'"
       - name: Test
         run: |
           cat Release.txt
