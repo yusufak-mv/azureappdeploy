@@ -29,6 +29,7 @@ jobs:
           echo ${{ github.sha }} + This is a regular release > Release.txt
           # echo "::set-output name=release::${{ github.sha }}"
       - name: Build
+        if: startsWith(github.ref, 'refs/tags/v')
         run: |
           echo ${{ github.sha }} + This is a tagged release > Release2.txt
           # echo "::set-output name=release::${{ github.sha }}"
