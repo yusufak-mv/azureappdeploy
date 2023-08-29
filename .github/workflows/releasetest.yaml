@@ -29,7 +29,6 @@ jobs:
           echo ${{ github.sha }} + This is a regular release > Release.txt
           # echo "::set-output name=release::${{ github.sha }}"
       - name: Build
-        id: version
         run: |
           echo ${{ github.sha }} + This is a tagged release > Release2.txt
           # echo "::set-output name=release::${{ github.sha }}"
