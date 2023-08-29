@@ -1,16 +1,16 @@
 name: Main
 
-on: 
-  push:
-    branches: [ "tagrelease" ]
+# on: 
+#   push:
+#     branches: [ "tagrelease" ]
 
 # on: 
 #   create:
 
-# on:
-#   push:
-#     tags:
-#       - "v*.*.*"
+on:
+  push:
+    tags:
+      - "v*.*.*"
 
 jobs:
   build:
