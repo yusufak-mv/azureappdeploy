@@ -27,12 +27,12 @@ jobs:
         id: version
         run: |
           echo ${{ github.sha }} > Release.txt
-          echo "::set-output name=release::${{ github.sha }}"
+          # echo "::set-output name=release::${{ github.sha }}"
       - name: Test
         id: tag
         run: |
           echo "1.0.1" > tag.txt
-          echo "::set-output name=version::1.0.1"
+          # echo "::set-output name=version::1.0.1"
       - name: Test 123
         if: startsWith(github.ref, 'refs/tags/v')
         run: |
@@ -40,7 +40,7 @@ jobs:
           cat tag.txt
       - name: Release
         uses: softprops/action-gh-release@v1
-        # if: startsWith(github.ref, 'refs/tags/')
+        if: startsWith(github.ref, 'refs/tags/')
         with:
           files: Release.txt
 
