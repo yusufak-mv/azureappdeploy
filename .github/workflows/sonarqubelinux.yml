@@ -1,0 +1,35 @@
+name: Sonarqube linux Build
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    name: Build
+    runs-on: arc-runner-set-dind
+    steps:
+      - run: sudo apt-get update -y && sudo apt-get install zip -y
+      - run: sudo apt-get install unzip -y
+      - run: sudo apt-get install curl -y
+      - run: sudo apt install apt-transport-https  -y
+      - run: sudo apt-get install -y dotnet-sdk-6.0
+
+
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+
+      - name: Build and SonarQube analyze
+ # Needed to get PR information, if any
+        run: |
+          dotnet tool install --global dotnet-sonarscanner
+          export PATH="$PATH:/home/runner/.dotnet/tools"
+          dotnet sonarscanner begin /k:"Sentara-DigitalSolutions_DemoRepo_AYpRLy9tD9x6SFgp7rM2" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" 
+          dotnet build MyConsoleApp/MyConsoleApp.sln 
+          dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+
+
