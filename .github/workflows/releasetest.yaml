@@ -1,11 +1,11 @@
 name: Main
 
 on: 
-  push:
-    branches: [ "tagrelease", "v*.*.*" ]
-    tags:
-      - "v*.*.*"
-
+  # push:
+  #   branches: [ "tagrelease", "v*.*.*" ]
+  #   tags:
+  #     - "v*.*.*"
+  workflow_dispatch:
 # on: 
 #   create:
 

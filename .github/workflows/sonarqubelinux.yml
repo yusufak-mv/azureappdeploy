@@ -28,7 +28,7 @@ jobs:
         run: |
           dotnet tool install --global dotnet-sonarscanner
           export PATH="$PATH:/home/runner/.dotnet/tools"
-          dotnet sonarscanner begin /k:"Sentara-DigitalSolutions_DemoRepo_AYpRLy9tD9x6SFgp7rM2" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" 
+          dotnet sonarscanner begin /k:"Sentara-DigitalSolutions_DemoRepo_AYpRLy9tD9x6SFgp7rM2" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
           dotnet build MyConsoleApp/MyConsoleApp.sln 
           dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
 
