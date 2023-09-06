@@ -3,14 +3,14 @@ name: Sonarqube linux Build
 on:
   push:
     branches:
-      - master
+      - tagrelease
   pull_request:
     types: [opened, synchronize, reopened]
 
 jobs:
   build:
     name: Build
-    runs-on: arc-runner-set-dind
+    runs-on: ubuntu-latest
     steps:
       - run: sudo apt-get update -y && sudo apt-get install zip -y
       - run: sudo apt-get install unzip -y
