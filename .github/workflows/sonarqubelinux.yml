@@ -32,7 +32,7 @@ jobs:
         run: |
           ls **
           pwd
-          ls -R ./**/*.csproj
+          ls -R ./**/**/*.csproj
         # continue-on-error: true
 
       - name: Copy all dotnet files into one folder 2
