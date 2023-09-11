@@ -32,7 +32,7 @@ jobs:
         run: |
           ls **
           pwd
-          ls /home/runner/work/azureappdeploy/azureappdeploy/**/*.csproj
+          ls /home/runner/work/azureappdeploy/azureappdeploy/**/**
 
       - name: Copy all dotnet files into one folder 2
         run: |
