@@ -15,6 +15,7 @@ jobs:
       - run: sudo apt-get update -y && sudo apt-get install zip -y
       - run: sudo apt-get install unzip -y
       - run: sudo apt-get install curl -y
+      - run: sudo apt-get install rsync -y
       - run: sudo apt install apt-transport-https  -y
       - run: sudo apt-get install -y dotnet-sdk-6.0
 
@@ -33,10 +34,15 @@ jobs:
 
       - name: Copy all dotnet files into one folder 2
         run: |
-          mkdir dotnetfiles && cp -r ** dotnetfiles
+          mkdir dotnetfiles && 
+          
+      - name: Copy all dotnet files into one folder 2
+        run: |          
+          rsync -av --exclude='dotnetfiles' ** dotnetfiles
+
       - name: Copy all dotnet files into one folder 3
         run: |
-          ls dotnetfiles
+          ls -al dotnetfiles
       - name: Copy all dotnet files into one folder 4
         run: |
           mkdir dotnetfiles2 
@@ -46,7 +52,7 @@ jobs:
 
       - name: Copy all dotnet files into one folder 6
         run: |
-          cp -r "**/"*.csproj dotnetfiles
+          rsync "**/"*.csproj dotnetfiles
 
       - name: Copy all dotnet files into one folder 
         run: |
