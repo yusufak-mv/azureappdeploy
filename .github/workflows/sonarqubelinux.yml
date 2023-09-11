@@ -64,7 +64,7 @@ jobs:
           ls **
           ls dotnetfiles
           dotnet new sln -n dotnetbuild
-          dotnet sln add `(ls -r ./**/**/*.csproj)`
+          dotnet sln add `(ls ./**/**/*.csproj)`
 
       - name: Build and SonarQube analyze
  # Needed to get PR information, if any
