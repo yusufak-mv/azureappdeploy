@@ -64,7 +64,7 @@ jobs:
           pwd
           ls ./**/**/*.csproj
           dotnet new sln -n dotnetbuild
-          dotnet sln add `(ls ./**/**/**/*.csproj ./**/**/*.csproj)`
+          dotnet sln add `(ls ./**/**/**/**/*.csproj ./**/**/**/*.csproj ./**/**/*.csproj ./**/*.csproj)`
 
       - name: Build and SonarQube analyze
  # Needed to get PR information, if any
