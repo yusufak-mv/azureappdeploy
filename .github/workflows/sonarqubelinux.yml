@@ -34,7 +34,7 @@ jobs:
 
       - name: Copy all dotnet files into one folder 2
         run: |
-          mkdir dotnetfiles && 
+          mkdir dotnetfiles
           
       - name: Copy all dotnet files into one folder 2
         run: |          
