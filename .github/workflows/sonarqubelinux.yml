@@ -64,7 +64,7 @@ jobs:
           pwd
           ls ./**/**/*.csproj
           dotnet new sln -n dotnetbuild
-          dotnet sln add `(ls ./**/**/*.csproj)`
+          dotnet sln add `(ls ./**/**/**/*.csproj)`
 
       - name: Build and SonarQube analyze
  # Needed to get PR information, if any
@@ -72,7 +72,7 @@ jobs:
           dotnet tool install --global dotnet-sonarscanner
           export PATH="$PATH:/home/runner/.dotnet/tools"
           dotnet sonarscanner begin /k:"Yus-test" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
-          dotnet build MyConsoleApp/MyConsoleApp.sln 
+          dotnet build dotnetbuild.sln 
           dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
 
 
