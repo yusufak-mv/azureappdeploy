@@ -31,6 +31,8 @@ jobs:
       - name: Copy all dotnet files into one folder 1
         run: |
           ls **
+          pwd
+          ls /home/runner/work/azureappdeploy/azureappdeploy/**
 
       - name: Copy all dotnet files into one folder 2
         run: |
