@@ -63,7 +63,6 @@ jobs:
         run: |
           ls **
           ls dotnetfiles
-          ls -r dotnetfiles/*.csproj
           dotnet new sln -n dotnetbuild
           dotnet sln add (ls -r ./**/**/*.csproj)
 
