@@ -33,15 +33,18 @@ jobs:
 
       - name: Copy all dotnet files into one folder 2
         run: |
-          mkdir dotnetfiles && cp ** dotnetfiles
+          mkdir dotnetfiles && cp -r ** dotnetfiles
       - name: Copy all dotnet files into one folder 3
         run: |
           ls dotnetfiles
       - name: Copy all dotnet files into one folder 4
         run: |
-          cp -r "**/"*.csproj dotnetfiles
-
+          mkdir dotnetfiles2 
       - name: Copy all dotnet files into one folder 5
+        run: |         
+          cp -r dotnetfiles/**/*.csproj dotnetfiles2
+
+      - name: Copy all dotnet files into one folder 6
         run: |
           cp -r "**/"*.csproj dotnetfiles
 
