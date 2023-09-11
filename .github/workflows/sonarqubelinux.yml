@@ -61,8 +61,7 @@ jobs:
 
       - name: Copy all dotnet files into one folder 
         run: |
-          ls **
-          ls dotnetfiles
+          ls ./**/**/*.csproj
           dotnet new sln -n dotnetbuild
           dotnet sln add `(ls ./**/**/*.csproj)`
 
