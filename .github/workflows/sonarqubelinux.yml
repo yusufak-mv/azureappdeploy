@@ -33,6 +33,7 @@ jobs:
           ls **
           pwd
           ls ./**/**/*.csproj
+        continue-on-error: true
 
       - name: Copy all dotnet files into one folder 2
         run: |
@@ -51,11 +52,12 @@ jobs:
           mkdir dotnetfiles2 
       - name: Copy all dotnet files into one folder 5
         run: |        
-          rsync -av --exclude='dotnetfiles2' **/*.csproj dotnetfiles2
+          rsync -av --exclude='dotnetfiles2' **/**/*.csproj dotnetfiles2
 
       - name: Copy all dotnet files into one folder 6
         run: |
           rsync "**/"*.csproj dotnetfiles
+        continue-on-error: true
 
       - name: Copy all dotnet files into one folder 
         run: |
@@ -63,7 +65,7 @@ jobs:
           ls dotnetfiles
           ls -r dotnetfiles/*.csproj
           dotnet new sln -n dotnetbuild
-          dotnet sln add (ls -r **/*.csproj)
+          dotnet sln add (ls -r ./**/**/*.csproj)
 
       - name: Build and SonarQube analyze
  # Needed to get PR information, if any
