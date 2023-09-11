@@ -45,10 +45,11 @@ jobs:
           ls -al dotnetfiles
       - name: Copy all dotnet files into one folder 4
         run: |
+          cd dotnetfiles
           mkdir dotnetfiles2 
       - name: Copy all dotnet files into one folder 5
-        run: |         
-          cp -r dotnetfiles/**/*.csproj dotnetfiles2
+        run: |        
+          rsync -av --exclude='dotnetfiles2' **/*.csproj dotnetfiles2
 
       - name: Copy all dotnet files into one folder 6
         run: |
