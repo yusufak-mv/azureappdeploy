@@ -39,7 +39,7 @@ jobs:
           ls dotnetfiles
       - name: Copy all dotnet files into one folder 4
         run: |
-          mkdir dotnetfiles && cp -r "**/"*.csproj dotnetfiles
+          cp -r "**/"*.csproj dotnetfiles
 
       - name: Copy all dotnet files into one folder 5
         run: |
