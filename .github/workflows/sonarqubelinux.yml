@@ -35,29 +35,29 @@ jobs:
           ls -R ./**/**/*.csproj
         # continue-on-error: true
 
-      - name: Copy all dotnet files into one folder 2
-        run: |
-          mkdir dotnetfiles
+      # - name: Copy all dotnet files into one folder 2
+      #   run: |
+      #     mkdir dotnetfiles
           
-      - name: Copy all dotnet files into one folder 2
-        run: |          
-          rsync -av --exclude='dotnetfiles' ** dotnetfiles
+      # - name: Copy all dotnet files into one folder 2
+      #   run: |          
+      #     rsync -av --exclude='dotnetfiles' ** dotnetfiles
 
-      - name: Copy all dotnet files into one folder 3
-        run: |
-          ls -al dotnetfiles
-      - name: Copy all dotnet files into one folder 4
-        run: |
-          cd dotnetfiles
-          mkdir dotnetfiles2 
-      - name: Copy all dotnet files into one folder 5
-        run: |        
-          rsync -av --exclude='dotnetfiles2' **/**/*.csproj dotnetfiles2
+      # - name: Copy all dotnet files into one folder 3
+      #   run: |
+      #     ls -al dotnetfiles
+      # - name: Copy all dotnet files into one folder 4
+      #   run: |
+      #     cd dotnetfiles
+      #     mkdir dotnetfiles2 
+      # - name: Copy all dotnet files into one folder 5
+      #   run: |        
+      #     rsync -av --exclude='dotnetfiles2' **/**/*.csproj dotnetfiles2
 
-      - name: Copy all dotnet files into one folder 6
-        run: |
-          rsync "**/"*.csproj dotnetfiles
-        continue-on-error: true
+      # - name: Copy all dotnet files into one folder 6
+      #   run: |
+      #     rsync "**/"*.csproj dotnetfiles
+      #   continue-on-error: true
 
       - name: Copy all dotnet files into one folder 
         run: |
